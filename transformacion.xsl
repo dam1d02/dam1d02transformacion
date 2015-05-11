@@ -3,7 +3,7 @@
   <xsl:template match="/">
     <html>
       <head>
-        <title>Ejer_3</title>
+        <title>Ejer_4</title>
       </head>
       <body>
         <table border="1">
@@ -13,30 +13,50 @@
             <th>Año</th>
           </tr>
           <xsl:for-each select="//cd">
-          <xsl:sort select="year" />
-          <xsl:if test="year&gt;1979 and year&lt;1990">
-            <tr>
-              <td>
-                <xsl:value-of select="title" />
-              </td>
-              <td>
-                <xsl:value-of select="artist" />
-              </td>
-              <td>
-                <xsl:value-of select="year" />
-              </td>
-            </tr>
-            </xsl:if>
+            <xsl:choose>
+              <xsl:when test="year&gt;1969 and year&lt;1980">
+                <tr bgcolor="yellow">
+                  <td>
+                    <xsl:value-of select="title"/>
+                  </td>
+                  <td>
+                    <xsl:value-of select="artist"/>
+                  </td>
+                  <td>
+                    <xsl:value-of select="year"/>
+                  </td>
+                </tr>
+              </xsl:when>
+              <xsl:when test="year&gt;1979 and year&lt;1990">
+                <tr bgcolor="green">
+                  <td>
+                    <xsl:value-of select="title"/>
+                  </td>
+                  <td>
+                    <xsl:value-of select="artist"/>
+                  </td>
+                  <td>
+                    <xsl:value-of select="year"/>
+                  </td>
+                </tr>
+              </xsl:when>
+              <xsl:otherwise>
+                <tr bgcolor="blue">
+                  <td>
+                    <xsl:value-of select="title"/>
+                  </td>
+                  <td>
+                    <xsl:value-of select="artist"/>
+                  </td>
+                  <td>
+                    <xsl:value-of select="year"/>
+                  </td>
+                </tr>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:for-each>
         </table>
       </body>
     </html>
   </xsl:template>
 </xsl:stylesheet>
-
-
-
-
-
-
-
